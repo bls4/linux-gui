@@ -34,10 +34,7 @@ sed -i "s|Exec=/usr/bin/google-chrome-stable %U|Exec=/usr/bin/google-chrome-stab
 mkdir /root/.jupyter ;\
 echo "c.ServerApp.token = ''" > /root/.jupyter/jupyter_notebook_config.py ;\
 sudo cp ./supervisord.conf /etc/supervisor/conf.d/ ;\
-sudo cp ./supervisord-sv /etc/init.d/ ;\
-sudo chmod +x /etc/init.d/supervisord-sv ;\
-sudo update-rc.d supervisord-sv defaults ;\
-sudo service supervisord-sv start "$@" & \
-sudo ufw allow 8080 
+sudo service supervisor start "$@" & \
+sudo ufw allow 8888
 
 
