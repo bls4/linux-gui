@@ -37,5 +37,5 @@ echo "c.ServerApp.token = ''" > /root/.jupyter/jupyter_notebook_config.py ;\
 sudo ufw allow 8080 ;\
 sudo cp ./start_sup.sh /etc/init.d/  ;\
 sudo update-rc.d start_sup.sh defaults  ;\
-sudo systemctl enable start.service 
+sudo systemctl enable start_sup.service 
 
