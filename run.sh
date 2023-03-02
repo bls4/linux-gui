@@ -32,4 +32,7 @@ apt install dbus-x11 pcmanfm mousepad thonny -y ;\
 sed -i "s|Exec=/usr/bin/google-chrome-stable %U|Exec=/usr/bin/google-chrome-stable %U --no-sandbox --disable-dev-shm-usage --disable-gpu|g" /usr/share/applications/google-chrome.desktop ;\
 mkdir /root/.jupyter ;\
 echo "c.ServerApp.token = ''" > /root/.jupyter/jupyter_notebook_config.py ;\
-sudo ufw allow 8080
+sudo ufw allow 8080 ;\
+sudo systemctl daemon-reload ;\
+sudo systemctl enable supervisord ;\
+sudo systemctl start supervisord
