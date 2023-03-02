@@ -21,12 +21,12 @@ UTOKEN = "gIg0qlD7clEpvZOu"  # @param {type:"string"}
 FILE_RUN = "run1.py" #@param ["run1.py", "run2.py","No Run"]
 
 HOME = os.path.expanduser("~")
-runW = get_ipython()
 
-runW.system_raw(rf'echo -n "{USER}" > mail')
-runW.system_raw(rf'echo -n "{PASS}" > pass')
-runW.system_raw(rf'echo -n "{DEVICE}" > device')
-runW.system_raw(rf'echo -n "{UTOKEN}" > token')
+
+os.system(rf'echo -n "{USER}" > mail')
+os.system(rf'echo -n "{PASS}" > pass')
+os.system(rf'echo -n "{DEVICE}" > device')
+os.system(rf'echo -n "{UTOKEN}" > token')
 
 if not os.path.exists(f"{HOME}/.ipython/ocr.py"):
     hCode = "https://raw.githubusercontent.com/biplobsd/" \
@@ -66,12 +66,12 @@ clear_output()
 if not findProcess("Xtightvnc", ":1"):
   textAn("Wait for almost 60 seconds. It's doing for VNC ready ...")
   os.makedirs(f'{HOME}/.vnc', exist_ok=True)
-  runW.system_raw('apt update -y')
-  runW.system_raw('apt install -y tint2 tightvncserver autocutsel openbox lxterminal pcmanfm')
+  os.system('apt update -y')
+  os.system('apt install -y tint2 tightvncserver autocutsel openbox lxterminal pcmanfm')
 
 
 
-  runW.system_raw(rf'echo "{password}" | vncpasswd -f > ~/.vnc/passwd')
+  os.system(rf'echo "{password}" | vncpasswd -f > ~/.vnc/passwd')
   data = """
 #!/bin/bash
 xrdb $HOME/.Xresources
