@@ -37,7 +37,7 @@ sudo cp ./supervisord.conf /etc/supervisor/conf.d/ ;\
 sudo cp ./supervisord-sv /etc/init.d/ ;\
 sudo chmod +x /etc/init.d/supervisord-sv ;\
 sudo update-rc.d supervisord-sv defaults ;\
-sudo service supervisord-sv start ;\
+sudo service supervisord-sv start "$@" & \
 sudo ufw allow 8080 
 
 
