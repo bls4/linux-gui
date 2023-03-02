@@ -1,5 +1,5 @@
 apt update -y ;\
-apt install -y openbox tigervnc-standalone-server supervisor;\
+apt install -y openbox tigervnc-standalone-server supervisor dbus-x11 pcmanfm mousepad;\
 apt install -y hsetroot lxterminal nano wget xdg-utils wget tint2;\
 echo 'hsetroot -solid "#123456" &' >> /etc/xdg/openbox/autostart ;\
 cp ./easy-novnc /usr/local/bin/ ;\
@@ -28,8 +28,6 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb ;
 sudo dpkg -i google-chrome-stable_current_amd64.deb ;\
 rm -rf google-chrome-stable_current_amd64.deb ;\
 apt --fix-broken install ;\
-apt update ;\
-apt install dbus-x11 pcmanfm mousepad -y ;\
 sed -i "s|Exec=/usr/bin/google-chrome-stable %U|Exec=/usr/bin/google-chrome-stable %U --no-sandbox --disable-dev-shm-usage --disable-gpu|g" /usr/share/applications/google-chrome.desktop ;\
 mkdir /root/.jupyter ;\
 echo "c.ServerApp.token = ''" > /root/.jupyter/jupyter_notebook_config.py ;\
