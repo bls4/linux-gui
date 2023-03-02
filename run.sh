@@ -27,7 +27,7 @@ sudo dpkg -i google-chrome-stable_current_amd64.deb ;\
 rm -rf google-chrome-stable_current_amd64.deb ;\
 apt --fix-broken install ;\
 apt update ;\
-apt install dbus-x11 pcmanfm mousepad thonny -y ;\
+apt install dbus-x11 pcmanfm mousepad -y ;\
 sed -i "s|Exec=/usr/bin/google-chrome-stable %U|Exec=/usr/bin/google-chrome-stable %U --no-sandbox --disable-dev-shm-usage --disable-gpu|g" /usr/share/applications/google-chrome.desktop ;\
 mkdir /root/.jupyter ;\
 echo "c.ServerApp.token = ''" > /root/.jupyter/jupyter_notebook_config.py ;\
