@@ -33,10 +33,10 @@ apt install dbus-x11 pcmanfm mousepad -y ;\
 sed -i "s|Exec=/usr/bin/google-chrome-stable %U|Exec=/usr/bin/google-chrome-stable %U --no-sandbox --disable-dev-shm-usage --disable-gpu|g" /usr/share/applications/google-chrome.desktop ;\
 mkdir /root/.jupyter ;\
 echo "c.ServerApp.token = ''" > /root/.jupyter/jupyter_notebook_config.py ;\
-sudo ufw allow 8080 ;\
 sudo cp ./supervisord.conf /etc/supervisor/conf.d/ ;\
 sudo chmod +x /etc/init.d/supervisor-sv ;\
 sudo update-rc.d supervisor-sv defaults ;\
-sudo service supervisor-sv start
+sudo service supervisor-sv start ;\
+sudo ufw allow 8080 
 
 
