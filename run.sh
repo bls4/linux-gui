@@ -9,7 +9,7 @@ mkdir -p /root/.config/tint2 ;\
 cp tint2rc /root/.config/tint2/ ;\
 mkdir "/root/.vnc" ;\
 chown -R "root:root" "/root/.vnc" ;\
-echo "p1971w" > /root/.vnc/passwd  ;\
+echo "p123123w" > /root/.vnc/passwd  ;\
 chown -R "root:root" "/root/.vnc/passwd" ;\
 chmod 400 "/root/.vnc/passwd" ;\
 apt update ;\
