@@ -2,7 +2,6 @@ apt update -y ;\
 apt install -y openbox tigervnc-standalone-server supervisor;\
 apt install -y hsetroot lxterminal nano wget xdg-utils wget tint2;\
 echo 'hsetroot -solid "#123456" &' >> /etc/xdg/openbox/autostart ;\
-cp ./supervisord.conf /etc/ ;\
 cp ./easy-novnc /usr/local/bin/ ;\
 chmod +x /usr/local/bin/easy-novnc ;\
 cp menu.xml /etc/xdg/openbox/ ;\
@@ -35,6 +34,7 @@ sed -i "s|Exec=/usr/bin/google-chrome-stable %U|Exec=/usr/bin/google-chrome-stab
 mkdir /root/.jupyter ;\
 echo "c.ServerApp.token = ''" > /root/.jupyter/jupyter_notebook_config.py ;\
 sudo ufw allow 8080 ;\
+sudo cp ./supervisord.conf /etc/supervisor/conf.d/ ;\
 sudo chmod +x /etc/init.d/supervisor-sv ;\
 sudo update-rc.d supervisor-sv defaults ;\
 sudo service supervisor-sv start
