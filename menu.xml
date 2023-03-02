@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openbox_menu xmlns="http://openbox.org/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://openbox.org/ file:///usr/share/openbox/menu.xsd">
+    <menu id="root-menu" label="Openbox 3">
+        <item label="JupyterLab">
+            <action name="Execute">
+                <execute>/usr/bin/google-chrome-stable http://127.0.0.1:8888/lab --no-sandbox --disable-dev-shm-usage --disable-gpu</execute>
+            </action>
+        </item>
+        <separator />
+        <item label="Start JupyterLab">
+            <action name="Execute">
+                <execute>jupyter-lab --allow-root</execute>
+            </action>
+        </item>
+        <separator />
+        <item label="Kill JupyterLab">
+            <action name="Execute">
+                <execute>pkill -f jupyter-lab</execute>
+            </action>
+        </item>
+        <separator />
+        <item label="Google Chrome">
+            <action name="Execute">
+                <execute>/usr/bin/google-chrome-stable %U --no-sandbox --disable-dev-shm-usage --disable-gpu</execute>
+            </action>
+        </item>
+        <separator />
+        <item label="LXTerminal">
+            <action name="Execute">
+                <execute>lxterminal</execute>
+            </action>
+        </item>
+        <separator />
+        <item label="File Manager">
+            <action name="Execute">
+                <execute>pcmanfm</execute>
+            </action>
+        </item>
+        <separator />
+        <item label="MousePad">
+            <action name="Execute">
+                <execute>mousepad</execute>
+            </action>
+        </item>
+        <separator />
+        <item label="Thonny">
+            <action name="Execute">
+                <execute>thonny</execute>
+            </action>
+        </item>
+        <separator />
+        <item label="Tint2 Config">
+            <action name="Execute">
+                <execute>tint2conf</execute>
+            </action>
+        </item>
+    </menu>
+</openbox_menu>
