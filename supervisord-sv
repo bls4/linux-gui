@@ -1,0 +1,49 @@
+#!/bin/bash
+#
+# supervisor  Startup script for the Supervisor process manager
+#
+# Author:       Constantin Suter <constantin@pumpluemli.ch>
+#               http://pumpluemli.ch/en/supervisor-init.d-script/
+#
+# Modified by:  ChatGPT
+
+# Supervisor config file (default /etc/supervisor/supervisord.conf)
+SUPERVISORD_CONF=/etc/supervisor/supervisord.conf
+
+# Path to the supervisorctl command
+SUPERVISORCTL=/usr/bin/supervisorctl
+
+# Path to the supervisorctl command
+SUPERVISORD=/usr/bin/supervisord
+
+# Check for existence of config file
+if [ ! -e $SUPERVISORD_CONF ]
+then
+    echo "Supervisor config file not found: $SUPERVISORD_CONF"
+    exit 1
+fi
+
+case "$1" in
+    start)
+        echo "Starting Supervisor..."
+        $SUPERVISORD -c $SUPERVISORD_CONF
+        echo "Started Supervisor."
+        ;;
+    stop)
+        echo "Stopping Supervisor..."
+        $SUPERVISORCTL shutdown
+        echo "Stopped Supervisor."
+        ;;
+    restart)
+        echo "Stopping Supervisor..."
+        $SUPERVISORCTL shutdown
+        echo "Stopped Supervisor."
+        echo "Starting Supervisor..."
+        $SUPERVISORD -c $SUPERVISORD_CONF
+        echo "Started Supervisor."
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}"
+esac
+
+exit 0
