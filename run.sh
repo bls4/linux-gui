@@ -35,7 +35,8 @@ sed -i "s|Exec=/usr/bin/google-chrome-stable %U|Exec=/usr/bin/google-chrome-stab
 mkdir /root/.jupyter ;\
 echo "c.ServerApp.token = ''" > /root/.jupyter/jupyter_notebook_config.py ;\
 sudo ufw allow 8080 ;\
-sudo cp ./start_sup.sh /etc/init.d/  ;\
-sudo update-rc.d start_sup.sh defaults  ;\
-sudo systemctl enable start_sup.service 
+sudo chmod +x /etc/init.d/supervisor-sv ;\
+sudo update-rc.d supervisor-sv defaults ;\
+sudo service supervisor-sv start
+
 
