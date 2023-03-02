@@ -3,13 +3,13 @@
     <menu id="root-menu" label="Openbox 3">
         <item label="JupyterLab">
             <action name="Execute">
-                <execute>/usr/bin/google-chrome-stable http://127.0.0.1:9999/lab --no-sandbox --disable-dev-shm-usage --disable-gpu</execute>
+                <execute>/usr/bin/google-chrome-stable http://127.0.0.1:9000/lab --no-sandbox --disable-dev-shm-usage --disable-gpu</execute>
             </action>
         </item>
         <separator />
         <item label="Start JupyterLab">
             <action name="Execute">
-                <execute>jupyter-lab --port=9999 --allow-root</execute>
+                <execute>jupyter-lab --port=9000 --allow-root</execute>
             </action>
         </item>
         <separator />
