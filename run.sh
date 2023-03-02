@@ -15,6 +15,9 @@ chown -R "root:root" "/root/.vnc/passwd" ;\
 chmod 400 "/root/.vnc/passwd" ;\
 apt update ;\
 apt install python3-pip -y ;\
+pip install nbconvert ;\
+pip install qtconsole ;\
+pip install ipywidgets ;\
 pip install jupyterlab ;\
 pip install selenium ;\
 pip install webdriver_manager ;\
@@ -32,7 +35,7 @@ sed -i "s|Exec=/usr/bin/google-chrome-stable %U|Exec=/usr/bin/google-chrome-stab
 mkdir /root/.jupyter ;\
 echo "c.ServerApp.token = ''" > /root/.jupyter/jupyter_notebook_config.py ;\
 sudo ufw allow 8080 ;\
-sudo cp ./start.sh /etc/init.d/  ;\
-sudo update-rc.d start.sh defaults  ;\
+sudo cp ./start_sup.sh /etc/init.d/  ;\
+sudo update-rc.d start_sup.sh defaults  ;\
 sudo systemctl enable start.service 
 
