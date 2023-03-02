@@ -1,5 +1,5 @@
 apt update -y ;\
-apt install -y openbox tigervnc-standalone-server supervisor ;\
+apt install -y openbox tigervnc-standalone-server supervisor systemd;\
 apt install -y hsetroot lxterminal nano wget xdg-utils wget tint2;\
 echo 'hsetroot -solid "#123456" &' >> /etc/xdg/openbox/autostart ;\
 echo '/usr/bin/supervisord' >> /etc/xdg/openbox/autostart ;\
