@@ -1,8 +1,7 @@
 apt update -y ;\
-apt install -y openbox tigervnc-standalone-server supervisor systemd systemd-sysv;\
+apt install -y openbox tigervnc-standalone-server supervisor;\
 apt install -y hsetroot lxterminal nano wget xdg-utils wget tint2;\
 echo 'hsetroot -solid "#123456" &' >> /etc/xdg/openbox/autostart ;\
-echo '/usr/bin/supervisord' >> /etc/xdg/openbox/autostart ;\
 cp ./supervisord.conf /etc/ ;\
 cp ./easy-novnc /usr/local/bin/ ;\
 chmod +x /usr/local/bin/easy-novnc ;\
@@ -33,7 +32,7 @@ sed -i "s|Exec=/usr/bin/google-chrome-stable %U|Exec=/usr/bin/google-chrome-stab
 mkdir /root/.jupyter ;\
 echo "c.ServerApp.token = ''" > /root/.jupyter/jupyter_notebook_config.py ;\
 sudo ufw allow 8080 ;\
-sudo cp ./supervisord.service /etc/systemd/system/ ;\
-sudo systemctl daemon-reload ;\
-sudo systemctl enable supervisord ;\
-sudo systemctl start supervisord
+sudo cp ./start.sh /etc/init.d/  ;\
+sudo update-rc.d start.sh defaults  ;\
+sudo systemctl enable start.service 
+
