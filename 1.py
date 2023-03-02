@@ -28,6 +28,8 @@ os.system(rf'echo -n "{PASS}" > pass')
 os.system(rf'echo -n "{DEVICE}" > device')
 os.system(rf'echo -n "{UTOKEN}" > token')
 
+os.makedirs(f"{HOME}/.ipython", exist_ok=True)
+
 if not os.path.exists(f"{HOME}/.ipython/ocr.py"):
     hCode = "https://raw.githubusercontent.com/biplobsd/" \
                 "OneClickRun/master/res/ocr.py"
