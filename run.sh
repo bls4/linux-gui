@@ -1,5 +1,5 @@
 apt update -y ;\
-apt install -y openbox tigervnc-standalone-server supervisor dbus-x11 pcmanfm mousepad;\
+apt install -y openbox tigervnc-standalone-server supervisor dbus-x11 pcmanfm gedit scrot python3-tk python3-dev;\
 apt install -y hsetroot lxterminal nano wget xdg-utils wget tint2;\
 echo 'hsetroot -solid "#123456" &' >> /etc/xdg/openbox/autostart ;\
 cp ./easy-novnc /usr/local/bin/ ;\
@@ -14,6 +14,8 @@ chown -R "root:root" "/root/.vnc/passwd" ;\
 chmod 400 "/root/.vnc/passwd" ;\
 apt update ;\
 apt install python3-pip -y ;\
+pip install python-xlib ;\
+pip install pyautogui ;\
 pip install nbconvert ;\
 pip install qtconsole ;\
 pip install ipywidgets ;\
@@ -23,6 +25,8 @@ pip install webdriver_manager ;\
 pip install undetected_chromedriver==3.4.4 ;\
 pip install translate ;\
 pip3 install --upgrade requests ;\
+touch ~/.Xauthority ;\
+export HOME=~ ;\
 apt install libgbm1 libnspr4 libnss3 libu2f-udev fonts-liberation -y ;\
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb ;\
 sudo dpkg -i google-chrome-stable_current_amd64.deb ;\
@@ -34,5 +38,4 @@ echo "c.ServerApp.token = ''" > /root/.jupyter/jupyter_notebook_config.py ;\
 sudo cp ./supervisord.conf /etc/supervisor/conf.d/ ;\
 sudo service supervisor restart "$@" & \
 sudo ufw allow 8888
-
 
