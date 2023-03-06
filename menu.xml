@@ -37,9 +37,9 @@
             </action>
         </item>
         <separator />
-        <item label="MousePad">
+        <item label="Gedit">
             <action name="Execute">
-                <execute>mousepad</execute>
+                <execute>gedit</execute>
             </action>
         </item>
         <separator />
